@@ -7,13 +7,17 @@ import ThemedText from 'components/ThemeText';
 
 const TODAYS_DATE = new Date().toISOString().split('T')[0];
 
-const Home = () => {
+const CurrentThemeIndicator = () => {
   const theme = useTheme();
+  return <ThemedText>{`Current theme: ${theme}`}</ThemedText>;
+};
+
+const Home = () => {
   const navigation = useNavigation();
   const dispatch = useThemeDispatch();
   return (
     <ThemedBackground>
-      <ThemedText>{`Current theme: ${theme}`}</ThemedText>
+      <CurrentThemeIndicator />
       <ThemedButton
         onClick={() => dispatch({ type: 'switch_theme' })}
         style={{ marginBottom: 16 }}
