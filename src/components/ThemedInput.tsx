@@ -13,12 +13,23 @@ const Input = React.memo(
     placeholder?: string;
   }) => {
     const theme = useTheme();
+    if (theme === 'dark') {
+      return (
+        <TextInput
+          value={value}
+          onChangeText={onChange}
+          placeholder={placeholder}
+          style={styles.dark}
+          placeholderTextColor={'grey'}
+        />
+      );
+    }
     return (
       <TextInput
         value={value}
         onChangeText={onChange}
         placeholder={placeholder}
-        style={theme === 'dark' ? styles.dark : styles.light}
+        style={styles.light}
       />
     );
   },
