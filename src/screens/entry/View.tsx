@@ -1,10 +1,10 @@
 import ThemedBackground from '@/components/ThemedBackground';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import ThemedText from 'components/ThemeText';
-import { RootStackParamList } from 'navigation/RootStack';
+import ThemedText from '@/components/ThemeText';
+import { RootStackParamList } from '@/navigation/RootStack';
 import { StyleSheet, View } from 'react-native';
-import { useNoteByDate } from 'store/notes';
-import { getDateYMD } from 'utils/date';
+import { useNoteByDate } from '@/store/notes';
+import { getDateYMD } from '@/utils/date';
 
 type ViewProps = NativeStackScreenProps<RootStackParamList, 'View'>;
 

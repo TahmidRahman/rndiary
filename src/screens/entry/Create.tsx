@@ -5,7 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useAddNoteEntry } from '@/store/notes';
 import ThemedText from '@/components/ThemeText';
-import { getDateYMD } from 'utils/date';
+import { getDateYMD } from '@/utils/date';
 
 const Create = () => {
   const [title, setTitle] = useState('');
