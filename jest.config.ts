@@ -14,9 +14,12 @@ const jestConfig: Config = {
     'node_modules/(?!(@react-native|react-native|@react-navigation|react-native-safe-area-context)/)',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
+  },
 };
 
 export default jestConfig;
