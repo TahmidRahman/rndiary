@@ -1,7 +1,8 @@
 import ThemedBackground from '@/components/ThemedBackground';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import ThemedText from 'components/ThemeText';
 import { RootStackParamList } from 'navigation/RootStack';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useNoteByDate } from 'store/notes';
 
 type ViewProps = NativeStackScreenProps<RootStackParamList, 'View'>;
@@ -9,16 +10,16 @@ type ViewProps = NativeStackScreenProps<RootStackParamList, 'View'>;
 const TODAYS_DATE = new Date().toISOString().split('T')[0];
 
 const NoEntry = () => {
-  return <Text>No entry!</Text>;
+  return <ThemedText>No entry!</ThemedText>;
 };
 
 const Content = ({ date }: { date: string }) => {
   const note = useNoteByDate(date);
   if (!note) return <NoEntry />;
   return (
-    <View>
-      <Text style={styles.title}>{note.title}</Text>
-      <Text>{note.description}</Text>
+    <View style={styles.center}>
+      <ThemedText style={styles.title}>{note.title}</ThemedText>
+      <ThemedText>{note.description}</ThemedText>
     </View>
   );
 };
@@ -30,13 +31,16 @@ const ViewEntry = ({ route }: ViewProps) => {
 
   return (
     <ThemedBackground>
-      <Text style={styles.heading}>{heading}</Text>
+      <ThemedText style={styles.heading}>{heading}</ThemedText>
       <Content date={dateOfEntry} />
     </ThemedBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+  },
   heading: {
     fontSize: 24,
   },

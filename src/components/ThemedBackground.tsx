@@ -14,7 +14,7 @@ const ThemedBackground = ({ children }: { children: React.ReactNode }) => {
 
 const styles = StyleSheet.create({
   containerDark: {
-    backgroundColor: 'navyblue',
+    backgroundColor: '#000080', //navy blue
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
