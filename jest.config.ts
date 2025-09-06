@@ -8,6 +8,7 @@ const jsWithBabelPreset = createJsWithBabelPreset({
 });
 
 const jestConfig: Config = {
+  rootDir: __dirname,
   preset: 'react-native',
   transform: jsWithBabelPreset.transform,
   transformIgnorePatterns: [
