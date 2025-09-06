@@ -5,9 +5,9 @@
  * @format
  */
 
-import ThemedButton from '@/components/ThemedButton';
 import { ThemeProvider } from 'ctx/theme';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import AppNavigation from 'navigation/AppNavigation';
+import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App() {
@@ -24,17 +24,9 @@ function App() {
 function AppContent() {
   return (
     <ThemeProvider>
-      <View style={styles.container}>
-        <ThemedButton onClick={console.log}>Click me</ThemedButton>
-      </View>
+      <AppNavigation />
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

@@ -19,3 +19,5 @@ const useNoteStore = create<{
 
 export const useNoteEntries = () => useNoteStore(state => state.entries);
 export const useAddNoteEntry = () => useNoteStore(state => state.add);
+export const useNoteByDate = (date: string) =>
+  useNoteStore(state => state.entries.find(e => e.date === date));
