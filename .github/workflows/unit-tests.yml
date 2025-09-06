@@ -22,8 +22,5 @@ jobs:
       - name: Install deps
         run: npm install
 
-      - run: pwd
-      - run: ls -R src/screens/Entry
-
       - name: Run tests
         run: npm run test
