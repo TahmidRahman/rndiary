@@ -4,10 +4,9 @@ import ThemedText from 'components/ThemeText';
 import { RootStackParamList } from 'navigation/RootStack';
 import { StyleSheet, View } from 'react-native';
 import { useNoteByDate } from 'store/notes';
+import { getDateYMD } from 'utils/date';
 
 type ViewProps = NativeStackScreenProps<RootStackParamList, 'View'>;
-
-const TODAYS_DATE = new Date().toISOString().split('T')[0];
 
 const NoEntry = () => {
   return <ThemedText>No entry!</ThemedText>;
@@ -25,9 +24,10 @@ const Content = ({ date }: { date: string }) => {
 };
 
 const ViewEntry = ({ route }: ViewProps) => {
+  const todayYMD = getDateYMD(new Date());
   const dateOfEntry = route.params.date;
   const heading =
-    dateOfEntry === TODAYS_DATE ? "Today's Entry" : `Entry of ${dateOfEntry}`;
+    dateOfEntry === todayYMD ? "Today's Entry" : `Entry of ${dateOfEntry}`;
 
   return (
     <ThemedBackground>

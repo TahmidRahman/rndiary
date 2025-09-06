@@ -4,8 +4,7 @@ import ThemedButton from 'components/ThemedButton';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme, useThemeDispatch } from '@/ctx/theme';
 import ThemedText from 'components/ThemeText';
-
-const TODAYS_DATE = new Date().toISOString().split('T')[0];
+import { getDateYMD } from 'utils/date';
 
 const CurrentThemeIndicator = () => {
   const theme = useTheme();
@@ -15,6 +14,7 @@ const CurrentThemeIndicator = () => {
 const Home = () => {
   const navigation = useNavigation();
   const dispatch = useThemeDispatch();
+  const todayYMD = getDateYMD(new Date());
   return (
     <ThemedBackground>
       <CurrentThemeIndicator />
@@ -31,7 +31,7 @@ const Home = () => {
         Create new entry
       </ThemedButton>
       <ThemedButton
-        onClick={() => navigation.navigate('View', { date: TODAYS_DATE })}
+        onClick={() => navigation.navigate('View', { date: todayYMD })}
       >
         Today's entry
       </ThemedButton>
