@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import ThemedBackground from 'components/ThemedBackground';
-import ThemedButton from 'components/ThemedButton';
+import ThemedBackground from '@/components/ThemedBackground';
+import ThemedButton from '@/components/ThemedButton';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme, useThemeDispatch } from '@/ctx/theme';
-import ThemedText from 'components/ThemeText';
-import { getDateYMD } from 'utils/date';
+import ThemedText from '@/components/ThemeText';
+import { getDateYMD } from '@/utils/date';
 
 const CurrentThemeIndicator = () => {
   const theme = useTheme();

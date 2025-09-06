@@ -5,8 +5,8 @@
  * @format
  */
 
-import { ThemeProvider } from 'ctx/theme';
-import AppNavigation from 'navigation/AppNavigation';
+import { ThemeProvider } from '@/ctx/theme';
+import AppNavigation from '@/navigation/AppNavigation';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 

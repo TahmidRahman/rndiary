@@ -1,5 +1,6 @@
 import type { Config } from 'jest';
-import { createJsWithBabelPreset } from 'ts-jest';
+import { createJsWithBabelPreset, pathsToModuleNameMapper } from 'ts-jest';
+import { compilerOptions } from './tsconfig.json';
 
 const jsWithBabelPreset = createJsWithBabelPreset({
   tsconfig: 'tsconfig.spec.json',
@@ -13,6 +14,9 @@ const jestConfig: Config = {
     'node_modules/(?!(@react-native|react-native|@react-navigation|react-native-safe-area-context)/)',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
 };
 
 export default jestConfig;
