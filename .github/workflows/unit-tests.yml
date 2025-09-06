@@ -22,5 +22,8 @@ jobs:
       - name: Install deps
         run: npm install
 
+      - run: pwd
+      - run: ls -R
+
       - name: Run tests
         run: npm run test
